@@ -1,25 +1,23 @@
 pragma solidity >=0.8.0 <0.9.0;
 //SPDX-License-Identifier: MIT
 
+//  General Solution to allow an organization to record a value in a low-cost way
+//  Meant to be implemented in a light-weight manner in-line
+
 import "hardhat/console.sol";
-// import "@openzeppelin/contracts/access/Ownable.sol"; 
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol"; 
 // https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol
 
-contract YourContract {
-
-  event SetPurpose(address sender, string purpose);
-
-  string public purpose = "Building Unstoppable Apps!!!";
+contract SimpleVerifySupply {
 
   constructor() payable {
     // what should we do on deploy?
   }
 
-  function setPurpose(string memory newPurpose) public {
-      purpose = newPurpose;
-      console.log(msg.sender,"set purpose to",purpose);
-      emit SetPurpose(msg.sender, purpose);
+  function recordAction(bytes32 _rootHash) public {
+    
   }
+
 
   // to support receiving ETH by default
   receive() external payable {}
